@@ -6,14 +6,13 @@ public class ContaCorrente extends Conta {
         super(numeroDaConta, dataDeAbertura, saldo, agencia);
     }
 
-    public boolean sacarChequeEspecial(double valorSaqueCheque) {
+    public void sacarChequeEspecial(double valorSaqueCheque) {
 
         if (valorSaqueCheque <= this.saldo + this.limiteChequeEspecial) {
             System.out.println("Saque no valor de: " + valorSaqueCheque + " Realizado com sucesso.");
-            return true;
+            this.saldo -= valorSaqueCheque;
         } else {
             System.err.println("Saque não realizado. Saldo insuficiente");
-            return false;
         }
 
     }
@@ -29,7 +28,6 @@ public class ContaCorrente extends Conta {
             saldo -= valorSaque;
             System.out.println("Saque de: R$ " + valorSaque + " realizado com sucesso.");
         }
-
     }
 
     @Override
@@ -38,6 +36,9 @@ public class ContaCorrente extends Conta {
         return this.saldo;
     }
 
-
+    @Override
+    public String toString() {
+        return "ContaCorrente [limiteChequeEspecial=" + limiteChequeEspecial + " " + super.toString() + "]";
+    }
 
 }

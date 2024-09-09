@@ -49,4 +49,10 @@ public abstract class Conta {
         saldo += valorDeposito;
         System.out.println("Depósito de: R$ " + valorDeposito + " realizado com sucesso.");
     }
+
+    @Override
+    public String toString() {
+        return "numeroDaConta=" + numeroDaConta + ", dataDeAbertura=" + dataDeAbertura + ", saldo=" + saldo
+                + ", agencia=" + agencia + "]";
+    }
 }
